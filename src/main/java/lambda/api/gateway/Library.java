@@ -4,16 +4,11 @@
 package lambda.api.gateway;
 
 
-import com.amazonaws.services.lambda.runtime.Context;
-import com.amazonaws.services.lambda.runtime.LambdaLogger;
-
 import java.util.Hashtable;
 
 public class Library {
 
-    public String repeatedWord(String string, Context c) {
-        LambdaLogger logger = c.getLogger();
-        logger.log("received the String: " + string);
+    public String repeatedWord(String string) {
         String[] arrString = string.split(" ");
         Hashtable<String,Integer> hashtable = new Hashtable<>();
 
@@ -24,7 +19,6 @@ public class Library {
 
             hashtable.put(lowercased,1);
         }
-
 
         return "";
 

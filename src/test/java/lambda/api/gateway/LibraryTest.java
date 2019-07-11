@@ -4,11 +4,12 @@
 package lambda.api.gateway;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
-    @Test public void testSomeLibraryMethod() {
+    @Test public void testRepeatedWord() {
         Library classUnderTest = new Library();
-        assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
+        assertEquals("book", classUnderTest.repeatedWord("a book is the book that is a"));
     }
 }
