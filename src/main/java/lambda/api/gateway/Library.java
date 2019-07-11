@@ -3,8 +3,24 @@
  */
 package lambda.api.gateway;
 
+
+import java.util.Hashtable;
+
 public class Library {
-    public boolean someLibraryMethod() {
-        return true;
+
+    public String repeatedWord(String string) {
+        String[] arrString = string.split(" ");
+        Hashtable<String,Integer> hashtable = new Hashtable<>();
+
+        for (String s: arrString) {
+
+            String lowercased = s.toLowerCase();
+            if(hashtable.containsKey(lowercased)) return lowercased;
+
+            hashtable.put(lowercased,1);
+        }
+
+        return "";
+
     }
 }
