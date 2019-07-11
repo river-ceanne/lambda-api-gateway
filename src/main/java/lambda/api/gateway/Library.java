@@ -3,8 +3,30 @@
  */
 package lambda.api.gateway;
 
+
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.LambdaLogger;
+
+import java.util.Hashtable;
+
 public class Library {
-    public boolean someLibraryMethod() {
-        return true;
+
+    public String repeatedWord(String string, Context c) {
+        LambdaLogger logger = c.getLogger();
+        logger.log("received the String: " + string);
+        String[] arrString = string.split(" ");
+        Hashtable<String,Integer> hashtable = new Hashtable<>();
+
+        for (String s: arrString) {
+
+            String lowercased = s.toLowerCase();
+            if(hashtable.containsKey(lowercased)) return lowercased;
+
+            hashtable.put(lowercased,1);
+        }
+
+
+        return "";
+
     }
 }
